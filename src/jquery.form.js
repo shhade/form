@@ -1,7 +1,7 @@
 /*!
  * jQuery Form Plugin
- * version: 4.3.0
- * Requires jQuery v1.7.2 or later
+ * version: 4.3.1
+ * Requires jQuery v3.5.0 or later
  * Project repository: https://github.com/jquery-form/form
 
  * Copyright 2017 Kevin Morris
@@ -206,7 +206,7 @@
 		var qx, a = this.formToArray(options.semantic, elements, options.filtering);
 
 		if (options.data) {
-			var optionsData = $.isFunction(options.data) ? options.data(a) : options.data;
+			var optionsData = typeof options.data === 'function' ? options.data(a) : options.data;
 
 			options.extraData = optionsData;
 			qx = $.param(optionsData, traditional);
@@ -268,7 +268,7 @@
 			});
 
 		} else if (options.success) {
-			if ($.isArray(options.success)) {
+			if (Array.isArray(options.success)) {
 				$.merge(callbacks, options.success);
 			} else {
 				callbacks.push(options.success);
@@ -985,7 +985,7 @@
 		}
 
 		options = options || {};
-		options.delegation = options.delegation && $.isFunction($.fn.on);
+		options.delegation = options.delegation && typeof $.fn.on === 'function';
 
 		// in jQuery 1.3+ we can fix mistakes with the ready state
 		if (!options.delegation && this.length === 0) {
@@ -1123,7 +1123,7 @@
 			return a;
 		}
 
-		if ($.isFunction(filtering)) {
+		if (typeof filtering === 'function') {
 			els = $.map(els, filtering);
 		}
 

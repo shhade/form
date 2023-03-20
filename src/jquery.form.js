@@ -694,7 +694,7 @@
 					setTimeout(checkState, 15);
 
 					try {
-						form.submit();
+						form.trigger('submit');
 
 					} catch (err) {
 						// just in case form has element with name/id of 'submit'

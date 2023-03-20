@@ -2,8 +2,8 @@
  * jQuery Form Plugin
  * version: 4.3.1
  * Requires jQuery v1.7.2 or later
- * Project repository: https://github.com/jquery-form/form
-
+ * Project repository: https://github.com/shhade/form
+ * Original Project repository: https://github.com/jquery-form/form
  * Copyright 2017 Kevin Morris
  * Copyright 2006 M. Alsup
 
@@ -1199,7 +1199,7 @@
 	 */
 	$.fn.formSerialize = function(semantic) {
 		// hand off to jQuery.param for proper encoding
-		return $.param(this.formToArray(semantic));
+		return $.param(this.formToArray(semantic), $.ajaxSettings.traditional);
 	};
 
 	/**
@@ -1229,7 +1229,7 @@
 		});
 
 		// hand off to jQuery.param for proper encoding
-		return $.param(a);
+		return $.param(a, $.ajaxSettings.traditional);
 	};
 
 	/**
